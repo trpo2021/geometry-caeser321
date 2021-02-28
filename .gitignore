@@ -1,0 +1,5 @@
+*.o
+.geometry.swp
+geometry~
+*.o*
+#geometry#
