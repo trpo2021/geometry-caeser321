@@ -1,2 +1,2 @@
 geometry: geometry
-        gcc -Wall -Werror -o geometry.exe geometry.cpp
+	gcc -Wall -Werror -o geometry.exe geometry.c
