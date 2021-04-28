@@ -1,9 +1,8 @@
 *.o
-.geometry.swp
-geometry~
-.vs/geometry-caeser321/v16/.suo
-.vs/geometry-caeser321/v16/Browse.VC.db
-.vs/geometry-caeser321/v16/ipch/AutoPCH/1b4e4d715a0131a6/GEOMETRY.ipch
-.vs/ProjectSettings.json
-.vs/slnx.sqlite
-.vs/VSWorkspaceState.json
+*.exe
+*.app
+*.a
+*.d
+*.out
+*.lib
+*~
