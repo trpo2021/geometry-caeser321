@@ -4,6 +4,5 @@
 #include <stdlib.h>
 #include <string.h>
 
-
 int compilition();
 void calculator(double x, double y, double r);
