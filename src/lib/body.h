@@ -6,3 +6,4 @@
 #pragma once
 
 int compilition();
+void calculator(double x, double y, double r);
