@@ -1,4 +1,4 @@
-#include "body.h"
+#include <body.h>
 int compilition()
 {
     double x, y, r;
