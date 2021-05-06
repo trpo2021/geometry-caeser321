@@ -142,10 +142,11 @@ int compilition()
     calculator(x, y, r);
 }
 
-void calculator(double x, double y, double r){
-  double s,p;
-  p=2*3.14*r;
-  s=3.14*r*r;
-  printf("Perimetr=%f\n",p);
-  printf("Ploshad'=%f",s);
+void calculator(double x, double y, double r)
+{
+    double s, p;
+    p = 2 * 3.14 * r;
+    s = 3.14 * r * r;
+    printf("Perimetr=%f\n", p);
+    printf("Ploshad'=%f", s);
 }
