@@ -145,8 +145,9 @@ int compilition()
 void calculator(double x, double y, double r)
 {
     double s, p;
-    p = 2 * 3.14 * r;
-    s = 3.14 * r * r;
+    float pi=3.1415;
+    p = 2 * pi * r;
+    s = pi * r * r;
     printf("Perimetr=%f\n", p);
     printf("Ploshad'=%f", s);
 }
