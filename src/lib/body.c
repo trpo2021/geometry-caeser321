@@ -1,4 +1,4 @@
-#include <body.h>
+#include <lib/body.h>
 int compilition()
 {
     double x, y, r;
@@ -140,6 +140,7 @@ int compilition()
     else
         printf("ERROR: expected 'circle'\n");
     calculator(x, y, r);
+    return 0;
 }
 
 void calculator(double x, double y, double r)
