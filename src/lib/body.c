@@ -1,154 +1,95 @@
-#include <lib/body.h>
-int compilition()
+#include "body.h"
+
+void intnum(char* point, double* arr)
 {
-    double x, y, r;
-    char str[100];
-    int flag = 0;
-    char circle[7] = "circle";
-    char* point = str;
-    char* start_point;
-    char* last_point = str;
-    char* end;
-
-    fgets(str, sizeof(str), stdin);
-
-    while (isalpha(*last_point) != 0)
-        last_point++;
-
-    if ((last_point - point) <= 6) {
-        if (strncmp(str, circle, 6) == 0)
-            flag = 1;
-    } else if (strncmp(str, circle, last_point - point) == 0)
-        flag = 1;
-    if (flag == 1) {
-        flag = 0;
-        point = last_point;
-        start_point = point;
-
-        while (*start_point != 10) {
-            if (*start_point == '(') {
-                point = start_point;
-                flag = 1;
-                break;
-            }
-            start_point++;
+    int step = 5, i = 0;
+    char* at;
+    while (step != 20) {
+        if (isdigit(*(point + step)) != 0) {
+            *at = *(point + step);
+            *(arr + i) = atoi(at);
+            i++;
         }
-
-        if (flag == 0) {
-            printf("ERROR: expected 'circle' (\n");
-            return 0;
-        }
-
-        while (isdigit(*point) == 0) // First number
-        {
-            if ((*point == ' ') || (*point == '('))
-                point++;
-            else {
-                printf("ERROR X\n");
-                return 0;
-            }
-        }
-
-        if (isdigit(*point) != 0) {
-            x = strtod(point, &end);
-            point = end;
-            printf("x=%f\n", x);
-        }
-
-        while (isdigit(*point) == 0) // Second number
-        {
-            if (*point == ' ')
-                point++;
-            else {
-                printf("ERROR Y\n");
-                return 0;
-            }
-        }
-
-        if (isdigit(*point) != 0) {
-            y = strtod(point, &end);
-            point = end;
-            printf("y= %f\n", y);
-        }
-
-        start_point = point;
-        flag = 0;
-
-        while (*start_point != 10) {
-            if ((*start_point != ' ') && (*start_point != ',')) {
-                printf("ERROR ,\n");
-                return 0;
-            } else if (*start_point == ',') {
-                point = start_point;
-                flag = 1;
-                break;
-            } else
-                start_point++;
-        }
-
-        if (flag == 0)
-            printf("ERROR ,");
-
-        while (isdigit(*point) == 0) // Third number
-        {
-            if ((*point == ' ') || (*point == ','))
-                point++;
-            else {
-                printf("ERROR Radius\n");
-                return 0;
-            }
-        }
-
-        if (isdigit(*point) != 0) {
-            r = strtod(point, &end);
-            point = end;
-            printf("r=%f\n", r);
-        }
-
-        flag = 0;
-        start_point = point;
-
-        while (*start_point != 10) {
-            if ((*start_point != ' ') && (*start_point != ')')) {
-                printf("ERROR )\n");
-                return 0;
-            } else if (*start_point == ')') {
-                point = start_point;
-                flag = 1;
-                break;
-            } else
-                start_point++;
-        }
-
-        if (flag == 0) {
-            printf("ERROR )\n");
-            return 0;
-        }
-
-        point++;
-
-        while (*point != 10) {
-            if (*point != ' ') {
-                printf("ERROR: no items expected\n");
-                return 0;
-            } else
-                point++;
-        }
-        printf("data entered correctly\n");
+        step++;
     }
-
-    else
-        printf("ERROR: expected 'circle'\n");
-    calculator(x, y, r);
-    return 0;
 }
 
-void calculator(double x, double y, double r)
+bool spaceCommCheck(char* point)
+{
+    while (isdigit(*point) == 0) // First number
+        point++;
+    int step = 0;
+    while (step != 10) {
+        if (*(point + step) == ' ') {
+            step = 0;
+            while (step != 10) {
+                if (*(point + step) == ',') {
+                    return true;
+                    break;
+                }
+                step++;
+            }
+        }
+        step++;
+    }
+    printf("ERROR: expected 'Space and Comm' \n");
+    return false;
+}
+
+bool brackCheck(char* point)
+{
+    int step = 0, fl;
+    while (step != 10) {
+        if (*(point + step) == '(') {
+            fl = 1;
+            break;
+        }
+        step++;
+    }
+    if (fl == 1) {
+        step = 0;
+        while (step != 20) {
+            if (*(point + step) == ')') {
+                return true;
+            }
+            step++;
+        }
+    }
+
+    printf("ERROR: expected 'bracks' \n");
+    return false;
+}
+
+bool comCheck(char* circle, char* point)
+{
+    if (strncmp(point, circle, 6) == 0)
+        return true;
+    else {
+        printf("ERROR: expected 'circle' \n");
+        return false;
+    }
+}
+
+void calculator(double r)
 {
     double s, p;
     float pi = 3.1415;
     p = 2 * pi * r;
     s = pi * r * r;
     printf("Perimetr=%f\n", p);
-    printf("Ploshad'=%f", s);
+    printf("Ploshad'=%f\n", s);
+}
+void circl(double* C1, double* C2)
+{
+    double x1 = C1[0];
+    double y1 = C1[1];
+    double x2 = C2[0];
+    double y2 = C2[0];
+    double radius1 = C1[2];
+    double radius2 = C2[2];
+    double distance = sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+    if (radius1 - radius2 < distance && distance < radius1 + radius2)
+        printf(" figure intersect \n");
+    else
+        printf(" figure not intersect \n");
 }
