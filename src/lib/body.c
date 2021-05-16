@@ -91,5 +91,5 @@ void circl(double* C1, double* C2)
     if (radius1 - radius2 < distance && distance < radius1 + radius2)
         printf(" figure intersect \n");
     else
-        printf(" figure not intersect \n");
+        printf(" figure not intersec \n");
 }
