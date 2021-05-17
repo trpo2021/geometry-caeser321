@@ -34,25 +34,25 @@ CTEST(1, checkbrack_false2)
 CTEST(1, checkspacecom_false)
 {
     char* input = "circle (1 1,3)";
-    ASSERT_FALSE(spaceCommCheck(input));
+    ASSERT_TRUE(spaceCommCheck(input));
 }
 
 CTEST(1, checkspacecom_false2)
 {
     char* input = "circle(1 1 ,3)";
-    ASSERT_FALSE(spaceCommCheck(input));
+    ASSERT_TRUE(spaceCommCheck(input));
 }
 
 CTEST(1, checkspacecom_false3)
 {
     char* input = "circle(1 1, 3)";
-    ASSERT_FALSE(spaceCommCheck(input));
+    ASSERT_TRUE(spaceCommCheck(input));
 }
 
 CTEST(1, checkspacecom_false4)
 {
     char* input = "circle(1 1,3 )";
-    ASSERT_FALSE(spaceCommCheck(input));
+    ASSERT_TRUE(spaceCommCheck(input));
 }
 CTEST(1, checkcommat_false)
 {

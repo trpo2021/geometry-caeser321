@@ -57,7 +57,7 @@ clean:
 
 .PHONY: test
 test: $(APP_PATH_TEST)
-
+	./$(APP_PATH_TEST)
 -include $(DEPS_TEST)
 
 $(APP_PATH_TEST): $(APP_OBJECTS_TEST) $(LIB_PATH)
